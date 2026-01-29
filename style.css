@@ -1,3 +1,4 @@
+/* --- Root Variables --- */
 :root {
     --glass: rgba(15, 15, 15, 0.85);
     --glass-border: rgba(255, 255, 255, 0.15);
@@ -5,6 +6,7 @@
     --jd-gradient: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
 }
 
+/* --- Global Styles --- */
 body {
     margin: 0; padding: 0; font-family: 'Kanit', sans-serif; color: #fff;
     min-height: 100vh; overflow-x: hidden;
@@ -20,6 +22,7 @@ body {
 
 .main-wrapper { max-width: 900px; margin: 40px auto; padding: 20px; position: relative; z-index: 1; }
 
+/* --- Components --- */
 .glass-card {
     background: var(--glass); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
     border: 1px solid var(--glass-border); border-radius: 25px; padding: 35px; margin-bottom: 25px;
@@ -35,20 +38,53 @@ body {
 
 @keyframes rainbow_move { to { background-position: 200% center; } }
 
-/* Profile Section Styles */
-.profile-header { display: flex; align-items: center; gap: 40px; }
-.avatar-section { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; }
-.avatar-wrap { position: relative; width: 150px; height: 150px; }
-.avatar-img { width: 110px; height: 110px; border-radius: 50%; border: 3px solid #fff; position: absolute; top: 20px; left: 20px; z-index: 2; object-fit: cover; }
-.avatar-frame { position: absolute; width: 170px; height: 170px; top: -10px; left: -10px; z-index: 3; pointer-events: none; }
+/* --- Profile Header Section --- */
+.profile-header { 
+    display: flex; 
+    align-items: center; 
+    gap: 40px; 
+}
 
-.main-title { font-size: 4rem; margin-top: 15px; margin-bottom: 5px; line-height: 1; }
-.sub-title { font-size: 1.1rem; margin-bottom: 10px; font-weight: 600; }
-.tags { font-size: 0.8rem; opacity: 0.8; letter-spacing: 1px; }
+.avatar-section { 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    flex-shrink: 0; 
+}
+
+.avatar-wrap { position: relative; width: 150px; height: 150px; }
+.avatar-img { 
+    width: 110px; height: 110px; border-radius: 50%; 
+    border: 3px solid #fff; position: absolute; top: 20px; left: 20px; 
+    z-index: 2; object-fit: cover; 
+}
+.avatar-frame { 
+    position: absolute; width: 170px; height: 170px; 
+    top: -10px; left: -10px; z-index: 3; pointer-events: none; 
+}
+
+/* แก้ไขจุดที่ชื่อ NNX. จมลงข้างล่าง */
+.user-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* ดันเนื้อหาขึ้นมาให้สมดุลกับรูป */
+}
+
+.main-title { 
+    font-size: 4.5rem; 
+    margin-top: 0;  /* ลบ margin บนออกเพื่อให้ชื่อขยับขึ้น */
+    margin-bottom: 0; 
+    line-height: 0.9; /* กระชับตัวอักษรให้ดูเท่ขึ้น */
+    font-weight: 900;
+}
+
+.sub-title { font-size: 1.2rem; margin-top: 10px; margin-bottom: 5px; font-weight: 600; }
+.tags { font-size: 0.85rem; opacity: 0.8; letter-spacing: 1px; }
 
 .nnx-tag { margin-top: 10px; font-family: 'Orbitron', sans-serif; font-size: 0.9rem; text-shadow: 0 0 10px rgba(255, 255, 255, 0.4); }
 
-.social-links { display: flex; gap: 12px; margin-top: 20px; }
+/* --- Social Links --- */
+.social-links { display: flex; gap: 12px; margin-top: 15px; }
 .social-item {
     width: 44px; height: 44px; background: rgba(255, 255, 255, 0.08);
     display: flex; align-items: center; justify-content: center;
@@ -57,13 +93,22 @@ body {
 }
 .social-item:hover { background: rgba(255, 255, 255, 0.2); transform: translateY(-5px); color: #fff; }
 
-.visualizer-container { margin: 30px 0 10px 0; padding: 20px; background: rgba(0, 0, 0, 0.4); border-radius: 20px; border: 1px solid var(--glass-border); }
+/* --- Visualizer --- */
+.visualizer-container { 
+    margin: 30px 0 10px 0; padding: 20px; 
+    background: rgba(0, 0, 0, 0.4); border-radius: 20px; 
+    border: 1px solid var(--glass-border); 
+}
 #contribution-grid { display: grid; grid-template-columns: repeat(52, 1fr); grid-template-rows: repeat(7, 1fr); gap: 3px; }
 .dot { aspect-ratio: 1/1; border-radius: 2px; background: rgba(255,255,255,0.05); }
-.dot.jd-active { background-image: var(--jd-gradient); background-size: 800% 800%; animation: jd_glow 2s linear infinite; }
+.dot.jd-active { 
+    background-image: var(--jd-gradient); background-size: 800% 800%; 
+    animation: jd_glow 2s linear infinite; 
+}
 
 @keyframes jd_glow { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
 
+/* --- Info Grid & Skills --- */
 .info-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
 .info-item { font-size: 0.9rem; font-weight: 700; padding: 5px 0; }
 .info-item i { width: 25px; color: #4facfe; margin-right: 5px; }
@@ -72,11 +117,17 @@ body {
 .progress-box { height: 10px; background: rgba(255,255,255,0.1); border-radius: 10px; overflow: hidden; margin-top: 8px; }
 .progress-bar { height: 100%; background: var(--rainbow); background-size: 200% auto; animation: rainbow_move 4s linear infinite; }
 
-.footer-text { text-align: center; padding: 20px; }
+.footer-text { text-align: center; padding: 30px; opacity: 0.7; font-size: 0.9rem; }
 
+/* --- Responsive Layout (Mobile) --- */
 @media (max-width: 768px) {
-    .profile-header { flex-direction: column; text-align: center; }
+    .profile-header { 
+        flex-direction: column; 
+        text-align: center; 
+        gap: 20px; /* ลดช่องว่างระหว่างรูปกับชื่อในมือถือ */
+    }
+    .user-info { align-items: center; }
+    .main-title { font-size: 3.5rem; margin-top: 10px; }
     .info-grid, .skill-list { grid-template-columns: 1fr; }
     #contribution-grid { grid-template-columns: repeat(26, 1fr); }
-    .main-title { font-size: 3rem; }
 }
