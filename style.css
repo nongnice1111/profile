@@ -34,39 +34,39 @@ body {
 
 @keyframes rainbow_move { to { background-position: 200% center; } }
 
-/* Profile Header - จัดการเรื่องตำแหน่งชื่อ */
+/* Profile Header - Fix Alignment */
 .profile-header { 
     display: flex; 
-    align-items: flex-start; /* เปลี่ยนเป็นชิดบนเพื่อให้คุมระยะง่ายขึ้น */
+    align-items: flex-start; /* จัดให้ชิดบนเพื่อคุมแกน Y ได้แม่นยำขึ้น */
     gap: 40px; 
 }
 
 .user-info {
     display: flex;
     flex-direction: column;
-    padding-top: 10px; /* ขยับลงมานิดหน่อยให้ตรงแนวหน้าผากรูปโปรไฟล์ */
+    padding-top: 15px; /* ดันกลุ่มข้อความลงมาให้ตรงกับรูป */
 }
 
 .main-title { 
     font-size: 4.5rem; 
-    margin-top: -20px; /* ดึงชื่อ NNX ขึ้นไปหาโปรไฟล์ */
+    margin-top: -25px; /* ดึงเฉพาะชื่อ NNX ขึ้นไปหาโปรไฟล์เพื่อความบาลานซ์ */
     margin-bottom: 0; 
-    line-height: 1; 
+    line-height: 0.95; 
     font-weight: 900;
     letter-spacing: -1px;
 }
 
-.sub-title { font-size: 1.2rem; font-weight: 600; margin-top: 5px; }
+.sub-title { font-size: 1.25rem; font-weight: 600; margin-top: 5px; }
 .tags { font-size: 0.85rem; opacity: 0.8; margin-top: 5px; }
 
-/* Avatar Section */
+/* Avatar */
 .avatar-section { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; }
 .avatar-wrap { position: relative; width: 150px; height: 150px; }
 .avatar-img { width: 110px; height: 110px; border-radius: 50%; border: 3px solid #fff; position: absolute; top: 20px; left: 20px; z-index: 2; object-fit: cover; }
 .avatar-frame { position: absolute; width: 170px; height: 170px; top: -10px; left: -10px; z-index: 3; pointer-events: none; }
 .nnx-tag { margin-top: 10px; font-family: 'Orbitron', sans-serif; font-size: 0.9rem; }
 
-/* Social */
+/* Social Items */
 .social-links { display: flex; gap: 12px; margin-top: 15px; }
 .social-item {
     width: 44px; height: 44px; background: rgba(255, 255, 255, 0.08);
@@ -76,7 +76,7 @@ body {
 }
 .social-item:hover { background: rgba(255, 255, 255, 0.2); transform: translateY(-3px); color: #fff; }
 
-/* Visualizer */
+/* Visualizer Grid */
 .visualizer-container { margin: 30px 0 10px 0; padding: 20px; background: rgba(0, 0, 0, 0.4); border-radius: 20px; border: 1px solid var(--glass-border); }
 #contribution-grid { display: grid; grid-template-columns: repeat(52, 1fr); grid-template-rows: repeat(7, 1fr); gap: 3px; }
 .dot { aspect-ratio: 1/1; border-radius: 2px; background: rgba(255,255,255,0.05); }
@@ -84,22 +84,22 @@ body {
 
 @keyframes jd_glow { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
 
-/* Skills & Grid */
+/* Info Grid & Skills */
 .info-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
-.info-item { font-size: 0.9rem; font-weight: 700; }
-.info-item i { width: 25px; color: #4facfe; }
+.info-item { font-size: 0.9rem; font-weight: 700; display: flex; align-items: center; }
+.info-item i { width: 25px; color: #4facfe; font-size: 1.1rem; margin-right: 8px; }
 
 .skill-list { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
 .progress-box { height: 10px; background: rgba(255,255,255,0.1); border-radius: 10px; overflow: hidden; margin-top: 8px; }
 .progress-bar { height: 100%; background: var(--rainbow); background-size: 200% auto; animation: rainbow_move 4s linear infinite; }
 
-.footer-text { text-align: center; padding: 20px; opacity: 0.6; }
+.footer-text { text-align: center; padding: 30px; opacity: 0.5; font-size: 0.85rem; }
 
-/* Responsive */
+/* Responsive Mobile */
 @media (max-width: 768px) {
-    .profile-header { flex-direction: column; align-items: center; text-align: center; gap: 20px; }
+    .profile-header { flex-direction: column; align-items: center; text-align: center; gap: 15px; }
     .user-info { padding-top: 0; align-items: center; }
-    .main-title { font-size: 3.5rem; margin-top: 0; } /* มือถือจัดกลางปกติ */
+    .main-title { font-size: 3.8rem; margin-top: 5px; } /* ในมือถือจัดระยะปกติเพื่อให้ดูไม่อึดอัด */
     .info-grid, .skill-list { grid-template-columns: 1fr; }
     #contribution-grid { grid-template-columns: repeat(26, 1fr); }
 }
